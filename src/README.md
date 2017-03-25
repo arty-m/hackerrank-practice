@@ -1,2 +1,0 @@
-# hackerrank-practice
-Code Practice
