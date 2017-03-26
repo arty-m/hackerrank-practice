@@ -1,7 +1,4 @@
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by Mihir on 16-02-2017.
@@ -60,5 +57,44 @@ public class LongestSubstring {
         }
         avg2 = avg2/nums2.length;
         return (avg1 + avg2) / 2;
+    }
+
+
+    /**
+     * Given a string and the number of rows, outputs the Zig Zag pattern string.
+     * Original problem in https://leetcode.com/problems/zigzag-conversion/
+     * @param input The input string
+     * @param rows Number of rows used for zig zag
+     * @return The zig zagged string
+     */
+    String zigzagConversion(String input, int rows) {
+        if(rows == 1 || input.length() <= rows) {
+            return input;
+        }
+        StringBuffer[] sb = new StringBuffer[rows];
+        for(int i=0; i< rows; i++) {
+            sb[i] = new StringBuffer();
+        }
+        int indexIncrementer = 1;
+        int index = 0;
+        for(int i=0;i<input.length();i++){
+            sb[index].append(input.charAt(i));
+            //Each character is added to the next row, so index should be incremented
+            if(index == 0) {
+                indexIncrementer = 1;
+            }
+            // If index is the last row, subsequent character should be added to the last but one row.
+            // Also unless we reach the first row, the index should be decremented.
+            if(index == rows-1) {
+                indexIncrementer = -1;
+            }
+            index+=indexIncrementer;
+        }
+
+        for(int idx=1; idx<rows; idx++) {
+            sb[0].append(sb[idx]);
+        }
+        System.out.println("Returned string is " + sb[0].toString());
+        return sb[0].toString();
     }
 }

@@ -82,6 +82,8 @@ public class Output {
         ArrayDeque<InputNumber> numbers = createInputDequeue();
         MultiThread multiThread = new MultiThread(numbers);
         multiThread.processThreads();
+
+        System.out.println("Zigzag string of 'PAYPALISHIRING 'is " + s.zigzagConversion("PAYPALISHIRING", 3));
     }
 
     private static ArrayDeque<InputNumber> createInputDequeue() {
