@@ -1,6 +1,7 @@
 import utils.InputNumber;
 import utils.ListNode;
 
+import java.awt.*;
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.TreeSet;
@@ -79,11 +80,16 @@ public class Output {
         System.out.println("Reverse of 987 is " + add2.reverseNumber(987,3));
         System.out.println("Largest palindrome for 3 is " + add2.largestPalindrome(3));
 
-        ArrayDeque<InputNumber> numbers = createInputDequeue();
-        MultiThread multiThread = new MultiThread(numbers);
-        multiThread.processThreads();
+//        ArrayDeque<InputNumber> numbers = createInputDequeue();
+//        MultiThread multiThread = new MultiThread(numbers);
+//        multiThread.processThreads();
 
         System.out.println("Zigzag string of 'PAYPALISHIRING 'is " + s.zigzagConversion("PAYPALISHIRING", 3));
+
+        //This is for number of interesting reverse pairs problem
+        int[] input = {2147483647,2147483647,-2147483647,-2147483647,-2147483647, 2147483647};
+        ReversePairs r = new ReversePairs(input);
+        System.out.println("Number of interesting reverse pairs are "+ r.reversePairs());
     }
 
     private static ArrayDeque<InputNumber> createInputDequeue() {
