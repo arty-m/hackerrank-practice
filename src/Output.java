@@ -90,6 +90,9 @@ public class Output {
         int[] input = {2147483647,2147483647,-2147483647,-2147483647,-2147483647, 2147483647};
         ReversePairs r = new ReversePairs(input);
         System.out.println("Number of interesting reverse pairs are "+ r.reversePairs());
+
+        IntegerProblems intProblems = new IntegerProblems(-123);
+        System.out.println("reverse of 1 is "+ intProblems.reverseInteger());
     }
 
     private static ArrayDeque<InputNumber> createInputDequeue() {
