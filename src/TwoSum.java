@@ -33,9 +33,9 @@ public class TwoSum {
         }
         for(int i=0; i<mInput.length; i++) {
             if(map.containsKey(mInput[i])) {
-                    int n2ndone = map.get(mInput[i]);
-                    if(i != n2ndone)
-                        return new int[] {i, n2ndone};
+                    int n2ndOne = map.get(mInput[i]);
+                    if(i != n2ndOne)
+                        return new int[] {i, n2ndOne};
                 }
             }
         throw new IllegalArgumentException("No two sum solution");

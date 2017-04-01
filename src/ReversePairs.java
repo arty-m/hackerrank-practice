@@ -16,11 +16,11 @@ public class ReversePairs {
         List<Integer> b = new ArrayList<>(length);
         for(int i=0; i<length; i++) {
             if(nums[i] < Integer.MAX_VALUE/2) {
-                b.add(2*nums[i], i);
+                b.add(2*nums[i]);
             } else if(nums[i] > Integer.MIN_VALUE && nums[i] < Integer.MIN_VALUE/2) {
-                b.add(Integer.MIN_VALUE, i);
+                b.add(Integer.MIN_VALUE);
             } else {
-                b.add(Integer.MAX_VALUE, i);
+                b.add(Integer.MAX_VALUE);
             }
         }
 
