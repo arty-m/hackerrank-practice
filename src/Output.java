@@ -93,6 +93,9 @@ public class Output {
 
         IntegerProblems intProblems = new IntegerProblems(-123);
         System.out.println("reverse of 1 is "+ intProblems.reverseInteger());
+
+        System.out.println("Is 'banana' a Pyramid Word? " + s.isPyramidWord("banana"));
+        System.out.println("Is 'sass' a Pyramid Word? " + s.isPyramidWord("sass"));
     }
 
     private static ArrayDeque<InputNumber> createInputDequeue() {
