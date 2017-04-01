@@ -1,5 +1,6 @@
 import utils.InputNumber;
 import utils.ListNode;
+import utils.Node;
 
 import java.awt.*;
 import java.util.ArrayDeque;
@@ -96,6 +97,12 @@ public class Output {
 
         System.out.println("Is 'banana' a Pyramid Word? " + s.isPyramidWord("banana"));
         System.out.println("Is 'sass' a Pyramid Word? " + s.isPyramidWord("sass"));
+
+        BinaryTreeProblems problems = new BinaryTreeProblems();
+        problems.build123M1();
+        Node n1 = problems.getRoot();
+        problems.build123M2();
+        problems.build123M3();
     }
 
     private static ArrayDeque<InputNumber> createInputDequeue() {
