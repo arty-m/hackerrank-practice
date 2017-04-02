@@ -45,4 +45,20 @@ public class IntegerProblems {
         }
         return result;
     }
+
+    void makeTheNumbersMatch(int a, int b, int x, int y) {
+        while(a != x || b != y) {
+            if(a > x) {
+                a--;
+            } else {
+                a++;
+            }
+            if(b > y) {
+                b--;
+            } else {
+                b++;
+            }
+        }
+        System.out.println("The numbers are a=" + a + " b=" + b + " x=" + x + " y=" + y);
+    }
 }

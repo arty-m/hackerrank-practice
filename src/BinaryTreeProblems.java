@@ -35,15 +35,28 @@ public class BinaryTreeProblems {
     }
 
     int size() {
-        return size(mRoot, 0);
+        return size(mRoot);
     }
 
-    private int size(Node n, int size) {
-        if(n != null) {
-            size += 1;
-            return size(n.getLeft(), size) + size(n.getRight(), size);
+    int maxDepth() {
+        return maxDepth(mRoot);
+    }
+
+    private int size(Node n) {
+        if(n == null) {
+            return 0;
         }
-        return 0;
+        else {
+            return (size(n.getLeft()) + 1 + size(n.getRight()));
+        }
+    }
+
+    public int maxDepth(Node n) {
+        if(n == null) {
+            return 0;
+        } else {
+            return 1 + Math.max(maxDepth(n.getLeft()), maxDepth(n.getRight()));
+        }
     }
 
     public void insert(int d) {

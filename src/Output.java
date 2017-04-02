@@ -100,9 +100,18 @@ public class Output {
 
         BinaryTreeProblems problems = new BinaryTreeProblems();
         problems.build123M1();
-        Node n1 = problems.getRoot();
+        System.out.println("Size of tree " + problems.size());
+        System.out.println("Max depth " + problems.maxDepth());
+        System.out.println("Max depth " + problems.maxDepth(problems.getRoot().getLeft()));
         problems.build123M2();
+        System.out.println("Size of tree " + problems.size());
         problems.build123M3();
+        System.out.println("Size of tree " + problems.size());
+
+        intProblems.makeTheNumbersMatch(10, 7, 3, 14);
+        intProblems.makeTheNumbersMatch(7, 10, 3, 14);
+
+        intProblems.makeTheNumbersMatch(10, 10, 3, 14);
     }
 
     private static ArrayDeque<InputNumber> createInputDequeue() {
