@@ -50,12 +50,12 @@ public class IntegerProblems {
         while(a != x || b != y) {
             if(a > x) {
                 a--;
-            } else {
+            } else if(a < x) {
                 a++;
             }
             if(b > y) {
                 b--;
-            } else {
+            } else if(b < y){
                 b++;
             }
         }

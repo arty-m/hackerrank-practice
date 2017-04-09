@@ -112,6 +112,22 @@ public class Output {
         intProblems.makeTheNumbersMatch(7, 10, 3, 14);
 
         intProblems.makeTheNumbersMatch(10, 10, 3, 14);
+
+        ListNode node1 = new ListNode(1);
+        node1.setNext(new ListNode(2));
+        int i = 0;
+        int j = 3;
+        ListNode builder = node1.getNext();
+        while (i < 5) {
+            builder.setNext(new ListNode(j++));
+            builder = builder.getNext();
+            i++;
+        }
+        LinkedListProblems linkedList = new LinkedListProblems(node1);
+        linkedList.print();
+//        linkedList.deleteLastButOneNode();
+        linkedList.reverseLinkedList();
+        linkedList.print();
     }
 
     private static ArrayDeque<InputNumber> createInputDequeue() {
