@@ -128,6 +128,8 @@ public class Output {
 //        linkedList.deleteLastButOneNode();
         linkedList.reverseLinkedList();
         linkedList.print();
+        linkedList.rotateLinkedList(4);
+        linkedList.print();
     }
 
     private static ArrayDeque<InputNumber> createInputDequeue() {
