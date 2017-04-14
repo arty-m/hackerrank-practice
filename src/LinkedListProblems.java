@@ -104,9 +104,16 @@ public class LinkedListProblems {
         }
     }
 
+    int pop() {
+        ListNode popNode = mRootNode;
+        if(popNode != null) {
+            mRootNode = popNode.getNext();
+            return popNode.getVal();
+        }
+        throw new Error("The list is empty");
+    }
 
-
-    ListNode reverseList(ListNode n) {
+    private ListNode reverseList(ListNode n) {
         ListNode current = n;
         ListNode next, previous = null;
         while( current != null ) {

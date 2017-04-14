@@ -10,6 +10,13 @@ public class ReversePairs {
         mArray = arr;
     }
 
+    // Example output that can be used
+//
+//    //This is for number of interesting reverse pairs problem
+//    int[] input = {2147483647,2147483647,-2147483647,-2147483647,-2147483647, 2147483647};
+//    ReversePairs r = new ReversePairs(input);
+//        System.out.println("Number of interesting reverse pairs are "+ r.reversePairs());
+
     public int reversePairs() {
         int[] nums = mArray;
         int length = nums.length;

@@ -46,19 +46,6 @@ public class LongestSubstring {
         return maxLength;
     }
 
-    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int avg1 = 0, avg2 = 0;
-        for(int i=0; i< nums1.length; i++) {
-            avg1 += nums1[i];
-        }
-        avg1 = avg1/nums1.length;
-        for(int i=0; i< nums2.length; i++) {
-            avg2 += nums2[i];
-        }
-        avg2 = avg2/nums2.length;
-        return (avg1 + avg2) / 2;
-    }
-
   /*
    * Task: Implement a method that takes in a String parameter and returns a boolean indicating
    *       whether or not the input is a "pyramid word."
@@ -150,5 +137,78 @@ public class LongestSubstring {
         }
         System.out.println("Returned string is " + sb[0].toString());
         return sb[0].toString();
+    }
+
+    String longestPalindrome(String s) {
+        int length = s.length();
+        int longest = 0;
+        String subString = "";
+        for(int i=0; i<length; i++) {
+            for(int j=i+1; j<length; j++) {
+                String sub = s.substring(i,j);
+                if(isPalindrome(sub)) {
+                    if(longest < sub.length()) {
+                        longest = sub.length();
+                        subString = sub;
+                    }
+                }
+            }
+        }
+        return subString;
+    }
+
+    String longestPalindromeDynamicProg(String s) {
+        int length = s.length();
+        if(length == 1) {
+            return s;
+        }
+        boolean[][] table = new boolean[length][length];
+        int longestBegin = 0;
+        int maxLength = 1;
+        for(int i=0; i<length; i++) {
+            table[i][i] = true;
+        }
+
+        for(int i=0; i<length-1; i++) {
+            if(s.charAt(i) == s.charAt(i+1)) {
+                table[i][i+1] = true;
+                longestBegin = i;
+                maxLength = 2;
+            }
+        }
+
+        for(int len=3; len <= length; len++) {
+            for (int i=0; i<length-len+1; i++) {
+                int j = i + len - 1;
+                if((s.charAt(i) == s.charAt(j)) && table[i+1][j-1]) {
+                    table[i][j] = true;
+                    longestBegin = i;
+                    maxLength = len;
+                }
+            }
+        }
+
+        return s.substring(longestBegin, longestBegin+maxLength);
+    }
+
+    void printPalindromes() {
+        for(int i=10; i<=99; i++) {
+            for(int j=10; j<=99; j++) {
+                int prod = i*j;
+                if(isPalindrome(String.valueOf(prod))) {
+                    System.out.println(prod);
+                }
+            }
+        }
+    }
+
+    boolean isPalindrome(String s) {
+        int lenth = s.length();
+        for(int i=0; i<lenth/2; i++) {
+            if(s.charAt(i) != s.charAt(lenth-1-i)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
