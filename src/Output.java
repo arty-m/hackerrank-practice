@@ -1,6 +1,8 @@
 import utils.InputNumber;
 import utils.ListNode;
+import utils.Node;
 
+import java.awt.*;
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.TreeSet;
@@ -79,9 +81,55 @@ public class Output {
         System.out.println("Reverse of 987 is " + add2.reverseNumber(987,3));
         System.out.println("Largest palindrome for 3 is " + add2.largestPalindrome(3));
 
-        ArrayDeque<InputNumber> numbers = createInputDequeue();
-        MultiThread multiThread = new MultiThread(numbers);
-        multiThread.processThreads();
+//        ArrayDeque<InputNumber> numbers = createInputDequeue();
+//        MultiThread multiThread = new MultiThread(numbers);
+//        multiThread.processThreads();
+
+        System.out.println("Zigzag string of 'PAYPALISHIRING 'is " + s.zigzagConversion("PAYPALISHIRING", 3));
+
+        //This is for number of interesting reverse pairs problem
+        int[] input = {2147483647,2147483647,-2147483647,-2147483647,-2147483647, 2147483647};
+        ReversePairs r = new ReversePairs(input);
+        System.out.println("Number of interesting reverse pairs are "+ r.reversePairs());
+
+        IntegerProblems intProblems = new IntegerProblems(-123);
+        System.out.println("reverse of 1 is "+ intProblems.reverseInteger());
+
+        System.out.println("Is 'banana' a Pyramid Word? " + s.isPyramidWord("banana"));
+        System.out.println("Is 'sass' a Pyramid Word? " + s.isPyramidWord("sass"));
+
+        BinaryTreeProblems problems = new BinaryTreeProblems();
+        problems.build123M1();
+        System.out.println("Size of tree " + problems.size());
+        System.out.println("Max depth " + problems.maxDepth());
+        System.out.println("Max depth " + problems.maxDepth(problems.getRoot().getLeft()));
+        problems.build123M2();
+        System.out.println("Size of tree " + problems.size());
+        problems.build123M3();
+        System.out.println("Size of tree " + problems.size());
+
+        intProblems.makeTheNumbersMatch(10, 7, 3, 14);
+        intProblems.makeTheNumbersMatch(7, 10, 3, 14);
+
+        intProblems.makeTheNumbersMatch(10, 10, 3, 14);
+
+        ListNode node1 = new ListNode(1);
+        node1.setNext(new ListNode(2));
+        int i = 0;
+        int j = 3;
+        ListNode builder = node1.getNext();
+        while (i < 5) {
+            builder.setNext(new ListNode(j++));
+            builder = builder.getNext();
+            i++;
+        }
+        LinkedListProblems linkedList = new LinkedListProblems(node1);
+        linkedList.print();
+//        linkedList.deleteLastButOneNode();
+        linkedList.reverseLinkedList();
+        linkedList.print();
+        linkedList.rotateLinkedList(4);
+        linkedList.print();
     }
 
     private static ArrayDeque<InputNumber> createInputDequeue() {

@@ -1,4 +1,5 @@
-.idea/
-lib/
 out/
 hackerrank-practice.iml
+.idea/workspace.xml
+.idea/*
+
