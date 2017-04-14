@@ -130,6 +130,10 @@ public class Output {
         linkedList.print();
         linkedList.rotateLinkedList(4);
         linkedList.print();
+        System.out.println("Number of 4s are " + linkedList.count(4));
+        System.out.println("The first node is " + linkedList.getNth(0));
+        System.out.println("The fifth node is " + linkedList.getNth(4));
+        System.out.println("The ninth node is " + linkedList.getNth(9));
     }
 
     private static ArrayDeque<InputNumber> createInputDequeue() {

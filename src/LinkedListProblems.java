@@ -1,5 +1,7 @@
 import utils.ListNode;
 
+import java.util.List;
+
 /**
  * Linked List problems class
  */
@@ -61,9 +63,52 @@ public class LinkedListProblems {
         mRootNode = reversedHead;
     }
 
+    /**
+     * Method counts the number of occurrences of the given integer in the list and outputs the count
+     * @param searchFor The number to search for in the list
+     * @return an integer showing the number of occurrences of the given integer in the list
+     */
+    int count(int searchFor) {
+        ListNode current = mRootNode;
+        int count = 0;
+        while (current != null) {
+            if(current.getVal() == searchFor) {
+                count++;
+            }
+            current = current.getNext();
+        }
+        return count;
+    }
+
+    /**
+     * This method will return the value of the node at the position. Similar to [] operator for Arrays
+     * If the list is empty, the method will throw an error with the appropriate message
+     * If the index is more than the length of the list, the method will throw an error with appropriate message
+     * @param index The index of the list at which the data needs to be retrieved
+     * @return The integer value at the desired index
+     */
+    int getNth(int index) {
+        ListNode current = mRootNode;
+        int i = 0;
+        while (current != null && i < index) {
+            current = current.getNext();
+            i++;
+        }
+        if(current != null)
+            return current.getVal();
+        else {
+            if(i > 0) {
+                throw new Error("Index is more than the length of the List");
+            }
+            throw new Error("List is empty");
+        }
+    }
+
+
+
     ListNode reverseList(ListNode n) {
         ListNode current = n;
-        ListNode next = null, previous = null;
+        ListNode next, previous = null;
         while( current != null ) {
             next = current.getNext();
             current.setNext(previous);
