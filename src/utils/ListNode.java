@@ -4,8 +4,8 @@ package utils;
  * Created by Mihir on 12-02-2017.
  */
 public class ListNode {
-      int val;
-      ListNode next;
+      private int val;
+      private ListNode next;
 
       public ListNode(int x) {
           val = x;

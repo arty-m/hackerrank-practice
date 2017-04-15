@@ -1,11 +1,8 @@
 import utils.InputNumber;
 import utils.ListNode;
-import utils.Node;
 
-import java.awt.*;
 import java.util.ArrayDeque;
 import java.util.Arrays;
-import java.util.TreeSet;
 
 /**
  * Created by Mihir on 01-02-2017.
@@ -39,22 +36,71 @@ public class Output {
         linkedList.reverseLinkedList();
         linkedList.print();
         linkedList.rotateLinkedList(4);
+        System.out.println("After rotation at position 4");
         linkedList.print();
         System.out.println("Number of 4s are " + linkedList.count(4));
         System.out.println("The first node is " + linkedList.getNth(0));
         System.out.println("The fifth node is " + linkedList.getNth(4));
-        System.out.println("The ninth node is " + linkedList.getNth(9));
         System.out.println("Pop one node and value of it is " + linkedList.pop());
         linkedList.print();
+        linkedList.push(1);
+        linkedList.print();
+        linkedList.insertNth(4,99);
+        linkedList.print();
+
+        LinkedListProblems sortedList = new LinkedListProblems(new ListNode(6));
+        sortedList.push(4);
+        sortedList.push(3);
+        sortedList.push(2);
+        sortedList.push(1);
+        sortedList.print();
+        sortedList.sortedInsert(new ListNode(5));
+        sortedList.print();
+
+        linkedList.insertSort();
+        linkedList.print();
+
+        linkedList.append(sortedList);
+        linkedList.print();
+
+        LinkedListProblems front = new LinkedListProblems(null);
+        LinkedListProblems back = new LinkedListProblems(null);
+        java.util.List<LinkedListProblems> list = linkedList.frontBackSplit(front, back);
+        for (LinkedListProblems l : list) {
+            l.print();
+        }
+
+        sortedList.sortedInsert(new ListNode(2));
+        sortedList.sortedInsert(new ListNode(5));
+        sortedList.sortedInsert(new ListNode(6));
+        sortedList.sortedInsert(new ListNode(3));
+        sortedList.sortedInsert(new ListNode(3));
+        sortedList.print();
+
+        sortedList.removeDuplicates();
+        System.out.println("List after duplicates removed");
+        sortedList.print();
+
+        System.out.println("List before move node method");
+        linkedList.print();
+        linkedList.moveNode(sortedList);
+        System.out.println("Lists after move node method");
+        linkedList.print();
+        sortedList.print();
+        System.out.println("Lists after alternating split");
+        front = new LinkedListProblems(null);
+        back = new LinkedListProblems(null);
+        list = linkedList.alternatingSplit(front, back);
+        list.forEach(LinkedListProblems::print);
     }
 
     private static void primeNumberProblems() {
         PrimeNumberUtil util = new PrimeNumberUtil(456);
         System.out.println("Number of prime numbers are " + util.giveNumberOfPrimes());
         util.print();
-        int[] primes = util.generatePrimes(456);
+        int[] primes = PrimeNumberUtil.generatePrimes(456);
         System.out.println("Number of prime numbers are ---> " + primes.length);
-        for(int i=0; i< primes.length; i++) {
+        for(int i : primes) {
             System.out.print(primes[i] + "\t");
         }
     }
