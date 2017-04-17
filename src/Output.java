@@ -92,6 +92,10 @@ public class Output {
         back = new LinkedListProblems(null);
         list = linkedList.alternatingSplit(front, back);
         list.forEach(LinkedListProblems::print);
+
+        linkedList = new LinkedListProblems();
+        linkedList.shuffleMerge(list.get(0), list.get(1));
+        linkedList.print();
     }
 
     private static void primeNumberProblems() {

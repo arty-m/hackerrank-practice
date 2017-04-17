@@ -13,6 +13,10 @@ public class LinkedListProblems {
         mRootNode = node;
     }
 
+    public LinkedListProblems() {
+        mRootNode = null;
+    }
+
     void deleteLastButOneNode() {
         ListNode n = mRootNode;
         int i = 0;
@@ -40,6 +44,27 @@ public class LinkedListProblems {
             current = next;
         }
         mRootNode = previous;
+    }
+
+    ListNode reverseLinkedListRecursive(ListNode node) {
+        // If list is empty, reversed list is also empty
+        if(node == null) {
+            return null;
+        }
+        // If list has only one element, reversed list also has a single element
+        if (node.getNext() == null) {
+            return node;
+        }
+
+        ListNode secondElem = node.getNext();
+        //Since the head will become the last node in the reversed list, the next should be set to null, to avoid a loop
+        node.setNext(null);
+
+        ListNode reverseList = reverseLinkedListRecursive(secondElem);
+        //The last element should be set since we are reversing from the second element
+        secondElem.setNext(node);
+
+        return reverseList;
     }
 
     void rotateLinkedList(int a) {
@@ -294,12 +319,28 @@ public class LinkedListProblems {
         return list;
     }
 
-    List<LinkedListProblems> alternatingSplitPreserveOrder(LinkedListProblems first, LinkedListProblems second) {
-        List<LinkedListProblems> list = new ArrayList<>();
-        list.add(first);
-        list.add(second);
-
-        return list;
+    void shuffleMerge(LinkedListProblems first, LinkedListProblems second) {
+        ListNode currentFirst = first.getRoot();
+        ListNode currentSecond = second.getRoot();
+        ListNode tail = this.getRoot();
+        while (currentFirst != null && currentSecond != null) {
+            this.moveNode(first);
+            tail = tail.getNext();
+            this.moveNode(second);
+            tail = tail.getNext();
+        }
+        if(first.getRoot() != null) {
+            currentFirst = first.getRoot();
+            while (currentFirst != null) {
+                this.moveNode(first);
+            }
+        }
+        if(second.getRoot() != null) {
+            currentSecond = second.getRoot();
+            while (currentSecond != null) {
+                this.moveNode(second);
+            }
+        }
     }
 
     public ListNode getRoot() {
