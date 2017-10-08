@@ -1,5 +1,8 @@
 package utils;
 
+import utils.exceptions.StackEmptyException;
+import utils.exceptions.StackFullException;
+
 /**
  * This class is an implementation of Stack ADT realized using arrays.
  */

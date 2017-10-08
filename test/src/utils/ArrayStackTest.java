@@ -2,6 +2,8 @@ package utils;
 
 import org.junit.Before;
 import org.junit.Test;
+import utils.exceptions.StackEmptyException;
+import utils.exceptions.StackFullException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
